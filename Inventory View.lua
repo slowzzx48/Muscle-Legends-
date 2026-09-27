@@ -1,10 +1,3 @@
---[[
-    VIEW INVENTORY @Slowzzx4
-    - Auras, Pets, Skins e Protein View
-    - View Mode (View 1 e View 2 - inicia invertido)
-    - Status Gui e Settings Gui anexados ao inventário (seguem ao mover)
-]]
-
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -28,7 +21,7 @@ local rainbowStrokes = {}
 
 local realDisplayName, realUserName, realUserId = "", "", ""
 
--- SISTEMA DE SONS
+-- SISTEMA DE SONS DOS HUDS --
 local function playSound(id)
     task.spawn(function()
         local sound = Instance.new("Sound")
@@ -147,7 +140,7 @@ local ScreenGui = Instance.new("ScreenGui", CoreGui)
 ScreenGui.Name = "PetViewerGui"
 ScreenGui.ResetOnSpawn = false
 
--- BOTÃO FLUTUANTE (Modificado conforme pedido)
+-- BOTÃO FLUTUANTE
 local ToggleBtn = Instance.new("TextButton", ScreenGui)
 ToggleBtn.Size = UDim2.new(0, 40, 0, 40)
 ToggleBtn.Position = UDim2.new(0.5, -389, 0.5, -122) 
@@ -155,12 +148,12 @@ ToggleBtn.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 ToggleBtn.Text = "SL"
 ToggleBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
 ToggleBtn.Font = Enum.Font.GothamBold
-ToggleBtn.TextSize = 22 -- Texto aumentado
+ToggleBtn.TextSize = 22
 ToggleBtn.ZIndex = 50 
 Instance.new("UICorner", ToggleBtn).CornerRadius = UDim.new(0, 8)
 createStroke(ToggleBtn, Color3.fromRGB(60, 60, 60), 2)
 
--- MAIN FRAME (Modificado conforme pedido)
+-- MAIN FRAME
 local MainFrame = Instance.new("Frame", ScreenGui)
 MainFrame.Size = UDim2.new(0, 420, 0, 450)
 MainFrame.Position = UDim2.new(0.5, -305, 0.5, -262)
@@ -179,7 +172,7 @@ StatusFrame.Active = true
 Instance.new("UICorner", StatusFrame).CornerRadius = UDim.new(0, 8)
 createStroke(StatusFrame, Color3.fromRGB(45, 45, 45), 2)
 
--- SETTINGS MENU (Inicia escondido)
+-- SETTINGS MENU
 local SettingsFrame = Instance.new("Frame", MainFrame)
 SettingsFrame.Size = UDim2.new(0, 245, 0, 140) 
 SettingsFrame.Position = UDim2.new(1, 10, 0, 0) 
@@ -192,13 +185,13 @@ local SettingsTitle = Instance.new("TextLabel", SettingsFrame)
 SettingsTitle.Size = UDim2.new(1, -40, 0, 20)
 SettingsTitle.Position = UDim2.new(0, 10, 0, 5)
 SettingsTitle.BackgroundTransparency = 1
-SettingsTitle.Text = "Settings View" -- Nome alterado
+SettingsTitle.Text = "Settings View"
 SettingsTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 SettingsTitle.Font = Enum.Font.GothamBlack
-SettingsTitle.TextSize = 16 -- Texto aumentado
+SettingsTitle.TextSize = 16
 SettingsTitle.TextXAlignment = Enum.TextXAlignment.Left
 
--- BOTÃO DE ABRIR/FECHAR SETTINGS (Muda de Gui dinamicamente)
+-- BOTÃO DE ABRIR/FECHAR SETTING
 local SettingsToggleBtn = Instance.new("ImageButton", MainFrame)
 SettingsToggleBtn.Size = UDim2.new(0, 22, 0, 22) 
 SettingsToggleBtn.Position = UDim2.new(1, -30, 0, 8) 
